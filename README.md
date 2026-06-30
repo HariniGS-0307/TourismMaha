@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Maharashtra Adventures
 
-## Getting Started
+A full-stack adventure booking platform for discovering, comparing, and booking trekking, camping, water sports, cycling, wildlife, and heritage experiences across Maharashtra.
 
-First, run the development server:
+## Highlights
+
+- Next.js App Router frontend and backend in one codebase
+- Prisma + PostgreSQL data layer
+- Auth.js / NextAuth authentication with roles
+- User, operator, and admin dashboards
+- Compare tool for up to 3 listings
+- Booking flow with Razorpay-ready checkout
+- AI adventure concierge chatbot with live listing and booking data
+- Customer reviews, operator replies, and in-app notifications
+- Responsive UI with premium cards, imagery, and global navigation
+
+## Demo accounts
+
+Use these seeded credentials for local testing:
+
+- User: `user@maharashtra-adventures.test`
+- Operator: `operator1@maharashtra-adventures.test`
+- Admin: `admin@maharashtra-adventures.test`
+- Password: `Password@123`
+
+## Local development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Validation commands
 
-## Learn More
+```bash
+npm run typecheck
+npm run lint
+npm run test
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Main product areas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Public experience
+- Home page
+- Explore destinations
+- Activity categories
+- Search and filters
+- Compare tool
+- Destination and listing detail pages
+- AI chatbot concierge
+- About and Contact pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### User dashboard
+- View upcoming, past, and cancelled bookings
+- Cancel eligible bookings
+- Leave reviews for completed trips
 
-## Deploy on Vercel
+### Operator dashboard
+- View operator stats and bookings
+- Review customer feedback
+- Post public replies to reviews
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Admin dashboard
+- Platform overview
+- Operators, listings, users, and bookings management
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key environment variables
+
+Typical variables used by the app include:
+
+- `DATABASE_URL`
+- `DIRECT_DATABASE_URL`
+- `NEXTAUTH_SECRET`
+- `NEXTAUTH_URL`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `RAZORPAY_KEY_ID`
+- `RAZORPAY_KEY_SECRET`
+- `GEMINI_API_KEY`
+- `RESEND_API_KEY`
+- `OPENWEATHER_API_KEY`
+- `GOOGLE_MAPS_API_KEY`
+- `CLOUDINARY_URL`
+
+## Deployment notes
+
+This app is ready to build for production with:
+
+```bash
+npm run build
+```
+
+Recommended deployment stack:
+
+- App: Vercel
+- Database: Supabase Postgres
+- Payments: Razorpay
+- Email: Resend
+
+Before deployment:
+
+1. Set production environment variables in Vercel.
+2. Ensure the production database is reachable.
+3. Run Prisma generate/migrations as needed.
+4. Verify Auth.js callback URLs and Razorpay webhook URL.
+
+## Current status
+
+The project has been validated with:
+
+- typecheck passing
+- lint passing
+- tests passing
+- production build passing
+
+The app also includes runtime-verified routes for the main public pages, dashboards, and chatbot flows.
